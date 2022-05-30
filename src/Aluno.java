@@ -1,14 +1,36 @@
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Aluno {
+    private String nome;
+    private int matricula;
+
     ArrayList<Double> notasParcial = new ArrayList<Double>();
     ArrayList<Double> notasBimestral = new ArrayList<Double>();
 
     private int quantidadeNotasParcial;
     private int quantidadeNotasBimestral;
-    Scanner sc = new Scanner(System.in);
+    //private File arquivo =  new FileReader("src\ArquivoDeTeste.txt").useDelimiter("\\\\||\\\\n");
+    Scanner sc = new Scanner(new FileReader("ArquivoDeTeste.txt")).useDelimiter("\\\\||\\\\n");  
     private Nota nota = new Nota();
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
 
     public Nota getNota() {
         return nota;
