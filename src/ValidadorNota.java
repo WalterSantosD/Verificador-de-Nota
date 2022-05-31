@@ -21,7 +21,7 @@ public class ValidadorNota {
 
     public boolean validadorGeralNota(Aluno aluno) {
         for (int i = 0; i < aluno.getQuantidadeNotasParcial(); i++) {
-            if (!NotaValida(aluno.notasParcial.get(i)) && !NotaValida(aluno.notasBimestral.get(i))  ) {
+            if (!NotaValida(aluno.notasParcial.get(i)) || !NotaValida(aluno.notasBimestral.get(i))  ) {
                 System.out.println("Nota invalida");
                 return false;
             }
