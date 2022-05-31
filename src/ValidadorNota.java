@@ -1,22 +1,19 @@
 public class ValidadorNota {
 
     private boolean NotaValida(double Nota) {
-        if (!NotaENumero(Nota)) {
-            throw new NotaInvalida();
-        } else {
             if (Nota >= 0.0 && Nota <= 10.0) {
                 return true;
             } else {
                 return false;
             }
         }
-    }
+    
     // @return
 
-    private boolean NotaENumero(double Nota) {
-        String x = Double.toString(Nota);
-        String condicao = "[-]?\\d*.\\d*";
-        if (x.matches(condicao)) {
+    boolean NotaENumero(String Nota) {
+        //String x = Double.toString(Nota);
+        String condicao = "[+]?\\d*.\\d*";
+        if (Nota.matches(condicao)) {
             return true;
         }
         return false;

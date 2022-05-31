@@ -1,9 +1,8 @@
-import java.io.File;
-import java.io.FileReader;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Aluno {
+public class Aluno  {
     private String nome;
     private int matricula;
 
@@ -13,7 +12,7 @@ public class Aluno {
     private int quantidadeNotasParcial;
     private int quantidadeNotasBimestral;
     //private File arquivo =  new FileReader("src\ArquivoDeTeste.txt").useDelimiter("\\\\||\\\\n");
-    Scanner sc = new Scanner(new FileReader("ArquivoDeTeste.txt")).useDelimiter("\\\\||\\\\n");  
+    Scanner sc = new Scanner(System.in);  
     private Nota nota = new Nota();
 
     public String getNome() {
@@ -36,14 +35,17 @@ public class Aluno {
         return nota;
     }
 
-    public Aluno(int quantidadeNotasParcial, int quantidadeNotasBimestral) {
-        this.quantidadeNotasParcial = quantidadeNotasParcial;
-        this.quantidadeNotasBimestral = quantidadeNotasBimestral;
+    public Aluno() {
+        this.quantidadeNotasParcial = 2;
+        this.quantidadeNotasBimestral = 1;
+    }
 
-        System.out.println("Deseja alterar os parâmetros? (S)sim (N)Não");
-        if (sc.next().equalsIgnoreCase("S")) {
-            nota.definirSistema(sc);
-        }
+    public void mudarParametros() {
+        System.out.println("Quantida de Notas Parcial?");
+        this.quantidadeNotasParcial = sc.nextInt();
+        System.out.println("Quantidade Notas Bimestral?");
+        this.quantidadeNotasBimestral = sc.nextInt();
+        nota.definirSistema(sc);
     }
 
     public int getQuantidadeNotasBimestral() {
@@ -55,15 +57,44 @@ public class Aluno {
     }
 
     public void registrarNotas(Aluno aluno) {
+        ValidadorNota validadorNota = new ValidadorNota();
         for (int i = 0; i < aluno.getQuantidadeNotasParcial(); i++) {
+
             System.out.println("Nota parcial AV" + (i + 1));
-            aluno.notasParcial.add(sc.nextDouble());
-        }
+            String x = sc.next();
+            if (validadorNota.NotaENumero(x)) {
+                Double y = Double.parseDouble(x);
+                aluno.notasParcial.add(y);
+            } else {
+                throw new NotaInvalida();
+            }
+            
+        } 
         for (int i = 0; i < aluno.getQuantidadeNotasBimestral(); i++) {
             System.out.println("Nota bimestral AV" + (i + 1));
-            aluno.notasBimestral.add(sc.nextDouble());
 
+            String x = sc.next();
+            if (validadorNota.NotaENumero(x)) {
+                Double y = Double.parseDouble(x);
+                aluno.notasBimestral.add(y);
+            } else {
+                throw new NotaInvalida();
+            }
         }
     }
+
+    @Override
+    public String toString() {
+        System.out.println();
+        StringBuilder builder = new StringBuilder("[");
+        builder.append("Matricula: " + this.matricula + " | Aluno: " + this.nome);
+        builder.append("]\n");
+       
+        
+        
+        return builder.toString();
+    }
+    
+    
 
 }
