@@ -1,20 +1,20 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Aluno  {
+public class Aluno {
+    Scanner sc = new Scanner(System.in);
+    
     private String nome;
     private int matricula;
+    private int quantidadeNotasParcial;
+    private int quantidadeNotasBimestral;
+    private Nota nota = new Nota();
 
     ArrayList<Double> notasParcial = new ArrayList<Double>();
     ArrayList<Double> notasBimestral = new ArrayList<Double>();
-
-    private int quantidadeNotasParcial;
-    private int quantidadeNotasBimestral;
+   
     //private File arquivo =  new FileReader("src\ArquivoDeTeste.txt").useDelimiter("\\\\||\\\\n");
-    Scanner sc = new Scanner(System.in);  
-    private Nota nota = new Nota();
-
+    
     public String getNome() {
         return nome;
     }

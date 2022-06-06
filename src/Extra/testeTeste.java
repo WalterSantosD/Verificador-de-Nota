@@ -1,3 +1,4 @@
+package Extra;
 import java.util.Scanner;
 
 public class testeTeste {
@@ -6,8 +7,9 @@ public class testeTeste {
             String Nota = sc.nextLine();
 
 
-            String condicao = "[+-]?\\d*.\\d*.";
-            if (Nota.matches(condicao)) {
+            String condicao01 = "[+-]?\\d*\\d*";
+            String condicao02 = "\\d*\\d*";
+            if (Nota.matches(condicao01)) {
                 System.out.println("sim");
             } else {
                 System.out.println("nao"); 

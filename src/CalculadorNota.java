@@ -1,7 +1,7 @@
 public class CalculadorNota {
     private double parcial;
     private double bimestral;
-    private double NF;
+    private double nf;
 
     public double getParcial() {
         return parcial;
@@ -12,7 +12,7 @@ public class CalculadorNota {
     }
 
     public double getNF() {
-        return NF;
+        return nf;
     }
 
     public double calcularNotaParcial(Aluno aluno) {
@@ -65,8 +65,8 @@ public class CalculadorNota {
 
     public double calcularNF(Aluno aluno) {
         
-        this.NF += this.parcial + this.bimestral / aluno.notasParcial.size() + aluno.notasBimestral.size();
-        return NF;
+        this.nf += this.parcial + this.bimestral / aluno.notasParcial.size() + aluno.notasBimestral.size();
+        return nf;
     }
 
 
