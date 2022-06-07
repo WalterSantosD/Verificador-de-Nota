@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class  Nota {
+public class  NotaParametro {
     private double minParcial;
     private double minBimestral;
     private double minNF;
     
 
-    public Nota() {
+    public NotaParametro() {
         this.minParcial = 4;
         this.minBimestral = 4;
         this.minNF = 5;

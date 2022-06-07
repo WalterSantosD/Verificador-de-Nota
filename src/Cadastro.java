@@ -22,6 +22,11 @@ public class Cadastro {
             aluno.setNome(sc.next());
             System.out.println("Matricula do aluno?");
             aluno.setMatricula(sc.nextInt());
+            aluno.registrarNotas(aluno);
+
+          /*   ValidadorNota validadorNota = new ValidadorNota();
+            CalculadorNota calculadorNota = new CalculadorNota();
+            calculadorNota.calcularNF(aluno); */
             alunos.add(aluno);
         }
     }

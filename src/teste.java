@@ -24,7 +24,7 @@ public class teste {
         cadastro.cadastrarAluno(aluno03);
         cadastro.cadastrarAluno(aluno04);
 
-        //cadastro.cadastrarVariosAlunos();
+        cadastro.cadastrarVariosAlunos();
 
         cadastro.buscarAlunosNome("lucas");
         System.out.println("");

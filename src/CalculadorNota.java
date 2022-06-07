@@ -18,7 +18,8 @@ public class CalculadorNota {
     public double calcularNotaParcial(Aluno aluno) {
         for (int i = 0; i < aluno.notasParcial.size(); i++) {
 
-            if (i + 1 >= aluno.notasParcial.size()) {
+            if (i + 1 >= aluno.notasParcial.size())//verifica se é o ultimo elemento 
+            {
 
                 if (aluno.notasParcial.size()%2 == 0) {
                     this.parcial = this.parcial / aluno.notasParcial.size();
@@ -65,7 +66,7 @@ public class CalculadorNota {
 
     public double calcularNF(Aluno aluno) {
         
-        this.nf += this.parcial + this.bimestral / aluno.notasParcial.size() + aluno.notasBimestral.size();
+        this.nf = (this.parcial + this.bimestral) / 2;
         return nf;
     }
 
@@ -80,7 +81,7 @@ public class CalculadorNota {
                 calcularNotaBimestral(aluno);
                 calcularNF(aluno);
                 if (this.getNF() >= aluno.getNota().getMinNF() && this.bimestral >= aluno.getNota().getMinBimestral()) {
-                    System.out.println("Aprovado no semestre");
+                    System.out.println("Aprovado no semestre, NF: " + this.getNF());
 
                 } else if (this.getNF() < aluno.getNota().getMinNF()) {
                     System.out.println("Reprovado no semestre, NF: " + this.getNF());
