@@ -1,4 +1,4 @@
-public class CalculadorNota {
+public class CalculadorNota implements CaluladorNotaGeral {
     private double parcial;
     private double bimestral;
     private double nf;
@@ -15,13 +15,14 @@ public class CalculadorNota {
         return nf;
     }
 
+    @Override
     public double calcularNotaParcial(Aluno aluno) {
         for (int i = 0; i < aluno.notasParcial.size(); i++) {
 
             if (i + 1 >= aluno.notasParcial.size())//verifica se é o ultimo elemento 
             {
 
-                if (aluno.notasParcial.size()%2 == 0) {
+                if (aluno.notasParcial.size() % 2 == 0) {
                     this.parcial = this.parcial / aluno.notasParcial.size();
                     break;
 
@@ -33,14 +34,14 @@ public class CalculadorNota {
                 }
             }
 
-
             this.parcial += (aluno.notasParcial.get(i) + aluno.notasParcial.get(i + 1));
-            
+
         }
 
         return parcial;
     }
-
+    
+    @Override
     public double calcularNotaBimestral(Aluno aluno) {
         for (int i = 0; i < aluno.notasBimestral.size(); i++) {
 
@@ -59,18 +60,19 @@ public class CalculadorNota {
             }
 
             this.bimestral += (aluno.notasBimestral.get(i) + aluno.notasBimestral.get(i + 1));
-        
+
         }
         return bimestral;
     }
-
+    
+    @Override
     public double calcularNF(Aluno aluno) {
         
         this.nf = (this.parcial + this.bimestral) / 2;
         return nf;
     }
 
-
+    @Override
     public boolean resultadoNotas(Aluno aluno, ValidadorNota validadorNota) {
         if (validadorNota.validadorGeralNota(aluno)) {
 
