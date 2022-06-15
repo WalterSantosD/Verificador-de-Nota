@@ -71,7 +71,7 @@ public class CalculadorNota {
     }
 
 
-    public void resultadoNotas(Aluno aluno, ValidadorNota validadorNota) {
+    public boolean resultadoNotas(Aluno aluno, ValidadorNota validadorNota) {
         if (validadorNota.validadorGeralNota(aluno)) {
 
             calcularNotaParcial(aluno);
@@ -82,18 +82,21 @@ public class CalculadorNota {
                 calcularNF(aluno);
                 if (this.getNF() >= aluno.getNota().getMinNF() && this.bimestral >= aluno.getNota().getMinBimestral()) {
                     System.out.println("Aprovado no semestre, NF: " + this.getNF());
-
+                    return true;
                 } else if (this.getNF() < aluno.getNota().getMinNF()) {
                     System.out.println("Reprovado no semestre, NF: " + this.getNF());
-
+                    return true;
                 } else if (this.bimestral < aluno.getNota().getMinBimestral()) {
-                    System.out.println("Reprovado no semestre, NF: " + this.getNF() + ", Bimestral abaixo do permitido: 4.0");
-
+                    System.out.println(
+                            "Reprovado no semestre, NF: " + this.getNF() + ", Bimestral abaixo do permitido: 4.0");
+                    return true;
                 }
             } else {
                 System.out.println("Não pode fazer Bimestral, Parcial abaixo do permitido: " + this.getParcial());
+                return false;
             }
 
         }
+        return false;
     }
 }

@@ -12,7 +12,7 @@ public class ValidadorNota {
 
     boolean NotaENumero(String Nota) {
         // String x = Double.toString(Nota);
-        String condicao = "[+]?\\d*.\\d*";
+        String condicao = "[+]?\\d*\\d*";
         if (Nota.matches(condicao)) {
             return true;
         }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Aluno {
+public class Aluno extends Estudante {
     Scanner sc = new Scanner(System.in);
     
     private String nome;
@@ -15,27 +15,27 @@ public class Aluno {
     ArrayList<Double> notasFinal = new ArrayList<Double>();
    
     //private File arquivo =  new FileReader("src\ArquivoDeTeste.txt").useDelimiter("\\\\||\\\\n");
-    
+    @Override
     public String getNome() {
         return nome;
     }
-
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    @Override
     public int getMatricula() {
         return matricula;
     }
-
+    @Override
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-
+   
     public NotaParametro getNota() {
         return nota;
     }
-
+    
     public Aluno() {
         this.quantidadeNotasParcial = 2;
         this.quantidadeNotasBimestral = 1;
@@ -48,7 +48,7 @@ public class Aluno {
         this.quantidadeNotasBimestral = sc.nextInt();
         nota.definirSistema(sc);
     }
-
+    
     public int getQuantidadeNotasBimestral() {
         return quantidadeNotasBimestral;
     }
@@ -85,10 +85,16 @@ public class Aluno {
                 throw new NotaInvalida();
             }
         }
-        calculadorNota.calcularNotaParcial(aluno);
-        calculadorNota.calcularNotaBimestral(aluno);
-        Double x = calculadorNota.calcularNF(aluno);
-        this.notasFinal.add(x);
+        if(calculadorNota.resultadoNotas(aluno, validadorNota)){
+            Double x = calculadorNota.calcularNF(aluno);
+            this.notasFinal.add(x);
+        } else {
+            Double x = calculadorNota.getParcial();
+            this.notasFinal.add(x);
+        }
+        
+
+       
     }
     
 
