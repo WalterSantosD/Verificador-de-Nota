@@ -1,15 +1,13 @@
 public class Main {
     public static void main(String[] args) {
+        Cadastro cadastro = new Cadastro();
         
-        Aluno aluno = new Aluno();
+        cadastro.cadastrarVariosAlunos();
+
+        cadastro.buscarAlunosNome("lucas");
+   
+        System.out.println(cadastro.buscarAlunosMatricula(5)); 
         
-        aluno.registrarNotas(aluno);
-
-        ValidadorNota validadorNota = new ValidadorNota();
-
-        CalculadorNota calculadorNota = new CalculadorNota();
-
-        calculadorNota.resultadoNotas(aluno, validadorNota);
-        
+        cadastro.alunosCadastrados();
     }
 }

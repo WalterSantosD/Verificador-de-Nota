@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Materias {
 
@@ -20,8 +21,16 @@ public class Materias {
      materias.put(10, "Sociologia");
  }
     
-public void cadastrarNovaMateria(String materia) {
-    materias.put(materias.size(), materia);
+ public void cadastrarNovaMateria(String materia) {
+     materias.put(materias.size(), materia);
+ }
+
+ public String escolherMateria(Scanner sc) {
+    System.out.println("Escolha uma matéria: ");
+     for (int i = 0; i < materias.size(); i++) {
+        System.out.println("["+i+"]"+materias.get(i));
+     }
+    return materias.get(sc.nextInt());
  }
     
 }

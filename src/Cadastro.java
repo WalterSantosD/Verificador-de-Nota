@@ -18,18 +18,22 @@ public class Cadastro {
         int numeroAlunos = sc.nextInt();
         for (int i = 0; i < numeroAlunos; i++) {
             Aluno aluno = new Aluno();
-
+           /*  aluno.mudarParametros(); */
             System.out.println("Nome do aluno?");
             aluno.setNome(sc.next());
 
             System.out.println("Matricula do aluno?");
             aluno.setMatricula(sc.nextInt());
+
+            Materias materias = new Materias();
             
+            aluno.setMateria(materias.escolherMateria(sc));
             aluno.registrarNotas(aluno);
 
             ValidadorNota validadorNota = new ValidadorNota();
             validadorNota.validadorGeralNota(aluno);
             alunos.add(aluno);
+            matriculaAluno.put(aluno.getMatricula(), aluno);
         }
     }
 

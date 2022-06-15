@@ -9,6 +9,7 @@ public class Aluno extends Estudante {
     private int quantidadeNotasParcial;
     private int quantidadeNotasBimestral;
     private NotaParametro nota = new NotaParametro();
+    private String matéria;
 
     ArrayList<Double> notasParcial = new ArrayList<Double>();
     ArrayList<Double> notasBimestral = new ArrayList<Double>();
@@ -30,6 +31,10 @@ public class Aluno extends Estudante {
     @Override
     public void setMatricula(int matricula) {
         this.matricula = matricula;
+    }
+
+    public void setMateria(String matéria) {
+        this.matéria = matéria;
     }
    
     public NotaParametro getNota() {
@@ -91,10 +96,7 @@ public class Aluno extends Estudante {
         } else {
             Double x = calculadorNota.getParcial();
             this.notasFinal.add(x);
-        }
-        
-
-       
+        }      
     }
     
 
@@ -103,7 +105,7 @@ public class Aluno extends Estudante {
     
         System.out.println();
         StringBuilder builder = new StringBuilder("[");
-        builder.append("Matricula: " + this.matricula + " | Aluno: " + this.nome+" | Notas Parcial: "+ this.notasParcial+" | Notas Bimestral: "+ this.notasBimestral +" | Nota Final: "+this.notasFinal);
+        builder.append("Matricula: " + this.matricula + " | Aluno: " + this.nome+" | Notas Parcial: "+ this.notasParcial+" | Notas Bimestral: "+ this.notasBimestral +" | Nota Final: "+this.notasFinal+" | Matéria: "+this.matéria);
         builder.append("]\n");
        
         
