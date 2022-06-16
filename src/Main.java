@@ -3,11 +3,12 @@ public class Main {
         Cadastro cadastro = new Cadastro();
         
         cadastro.cadastrarVariosAlunos();
-
-        cadastro.buscarAlunosNome("lucas");
-   
-        System.out.println(cadastro.buscarAlunosMatricula(5)); 
         
         cadastro.alunosCadastrados();
+        
+        System.out.println(cadastro.buscarAlunosMatricula(5)); 
+        
+
+        cadastro.rank();
     }
 }

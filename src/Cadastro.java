@@ -25,7 +25,10 @@ public class Cadastro implements CadastroGeral {
             aluno.setNome(sc.next());
 
             System.out.println("Matricula do aluno?");
-            aluno.setMatricula(sc.nextInt());
+            int x = sc.nextInt();
+            aluno.validadorMatricula(x);
+            
+           
 
             Materias materias = new Materias();
 
@@ -48,9 +51,16 @@ public class Cadastro implements CadastroGeral {
                 //System.out.print(alunos.get(i).getMatricula() + " ");
                 //System.out.println(alunos.get(i).getNome());
                 Object x = buscarAlunosMatricula(alunos.get(i).getMatricula());
-                System.out.println(x);
+                if (x == null) {
+                    System.out.println("Aluno não encontrado por nome");
+                } else {
+                    System.out.println(x);
+                }
+                
+               
             }
         }
+        
     }
     
     @Override
@@ -69,6 +79,29 @@ public class Cadastro implements CadastroGeral {
     @Override
     public void alunosCadastrados() {
         System.out.println(alunos);
+    }
+
+    public void rank() {
+        double contador = 0;
+        Object aluno = 0;
+        for (int i = 0; i < alunos.size(); i++) {
+
+            if (contador < alunos.get(i).notasFinal.get(0)) {
+                contador = alunos.get(i).notasFinal.get(0);
+                aluno = alunos.get(i);
+                
+
+            }
+            if (i + 1 >= alunos.size()) {
+                System.out.println("--------------------------------------------------------------------");
+                System.out.println("Aluno com a melhor nota:");
+                System.out.println(aluno);
+                System.out.println("--------------------------------------------------------------------");
+        
+            }
+        }
+        
+       
     }
    
     

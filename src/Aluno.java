@@ -62,6 +62,22 @@ public class Aluno extends Estudante {
         return quantidadeNotasParcial;
     }
 
+    public void validadorMatricula(int numero)  {
+        if (numero < 0) {
+            try {
+                throw new MatriculaExeception();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Digite novamente a matrícula");
+                validadorMatricula(sc.nextInt()); 
+            }
+            
+        } else {
+            setMatricula(numero);
+        }
+        
+    }
+
     public void registrarNotas(Aluno aluno) {
         ValidadorNota validadorNota = new ValidadorNota();
         CalculadorNota calculadorNota = new CalculadorNota();
@@ -74,7 +90,7 @@ public class Aluno extends Estudante {
                 aluno.notasParcial.add(y);
                
             } else {
-                throw new NotaInvalida();
+                throw new NotaInvalidaExeception();
             }
 
         }
@@ -87,7 +103,7 @@ public class Aluno extends Estudante {
                 aluno.notasBimestral.add(y);
 
             } else {
-                throw new NotaInvalida();
+                throw new NotaInvalidaExeception();
             }
         }
         if(calculadorNota.resultadoNotas(aluno, validadorNota)){

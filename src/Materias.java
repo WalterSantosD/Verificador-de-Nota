@@ -26,11 +26,23 @@ public class Materias {
  }
 
  public String escolherMateria(Scanner sc) {
-    System.out.println("Escolha uma matéria: ");
-     for (int i = 0; i < materias.size(); i++) {
-        System.out.println("["+i+"]"+materias.get(i));
-     }
-    return materias.get(sc.nextInt());
+     int escolha;
+    System.out.println("Escolha um opção");
+    for (int i = 0; i < materias.size(); i++) {
+        System.out.println("["+i+"] "+materias.get(i)); 
+    }
+    escolha = sc.nextInt();
+
+    while (escolha < 0 || escolha >= materias.size()) {
+        System.out.println("Escolha invalida ");
+        
+        for (int i = 0; i < materias.size(); i++) {
+            System.out.println("[" + i + "] " + materias.get(i));
+        }
+        
+        escolha = sc.nextInt();
+    }
+    return materias.get(escolha);
  }
     
 }

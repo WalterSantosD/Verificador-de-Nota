@@ -78,19 +78,22 @@ public class CalculadorNota implements CaluladorNotaGeral {
 
             calcularNotaParcial(aluno);
             if (this.getParcial() >= aluno.getNota().getMinParcial()) {
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                 System.out.println("Pode fazer Bimestral");
 
                 calcularNotaBimestral(aluno);
                 calcularNF(aluno);
                 if (this.getNF() >= aluno.getNota().getMinNF() && this.bimestral >= aluno.getNota().getMinBimestral()) {
                     System.out.println("Aprovado no semestre, NF: " + this.getNF());
+                    System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                     return true;
                 } else if (this.getNF() < aluno.getNota().getMinNF()) {
                     System.out.println("Reprovado no semestre, NF: " + this.getNF());
+                    System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                     return true;
                 } else if (this.bimestral < aluno.getNota().getMinBimestral()) {
-                    System.out.println(
-                            "Reprovado no semestre, NF: " + this.getNF() + ", Bimestral abaixo do permitido: 4.0");
+                    System.out.println("Reprovado no semestre, NF: " + this.getNF() + ", Bimestral abaixo do permitido: 4.0");
+                            System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                     return true;
                 }
             } else {

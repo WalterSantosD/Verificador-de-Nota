@@ -22,12 +22,12 @@ public class ValidadorNota {
     public boolean validadorGeralNota(Aluno aluno) {
         for (int i = 0; i < aluno.getQuantidadeNotasParcial(); i++) {
             if (!NotaValida(aluno.notasParcial.get(i))) {
-                throw new NotaInvalida();
+                throw new NotaInvalidaExeception();
             }
         }
         for (int i = 0; i < aluno.getQuantidadeNotasBimestral(); i++) {
             if (!NotaValida(aluno.notasBimestral.get(i))) {
-                throw new NotaInvalida();
+                throw new NotaInvalidaExeception();
             }
         }
         return true;
